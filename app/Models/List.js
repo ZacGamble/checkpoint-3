@@ -23,7 +23,7 @@ export class List {
         <div id="task-template" class="d-flex flex-column p-2 m-2">
         </div>
           
-           <form onsubmit="app.tasksController.addTask('${this.name}')" class="d-flex justify-content-between">
+           <form onsubmit="app.tasksController.addTask('${this.id}')" class="d-flex justify-content-between">
            <input style="max-width: 75%;" type="text" placeholder="Add task..." name="task-name" id="task-name" minlength="3" maxlength="50">
            <button type="submit" class="p-2 on-hover bg-success">+</button>
          </form>

@@ -3,8 +3,8 @@ import { Task } from "../Models/Task.js";
 
 
 class TasksService {
-    addTask(taskData){
-        const task = new Task(taskData)
+    addTask(listData){
+        const task = new Task(listData)
         ProxyState.tasks = [...ProxyState.tasks, task]
     }
 

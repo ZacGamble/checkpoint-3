@@ -3,12 +3,14 @@ import { List } from "../Models/List.js";
 
 class ListsService {
     addList(listData){ 
+        
         const list = new List(listData)
         ProxyState.lists = [list, ...ProxyState.lists]
+        
     }
 
-    removeList(listId){
-        
+    removeList(name){
+        ProxyState.lists = ProxyState.lists.filter(l => l.name !== name)
     }
 }
 

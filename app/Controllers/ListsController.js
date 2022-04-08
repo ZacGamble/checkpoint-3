@@ -12,6 +12,7 @@ function _drawLists() {
 export class ListsController {
     constructor(){
         ProxyState.on('lists', _drawLists);
+        ProxyState.on('tasks', _drawLists)
         _drawLists();
     }
     addList(){
@@ -37,9 +38,10 @@ export class ListsController {
 
     removeList(){
         try {
-            
+            console.log('delete button firing', name);
+            listsService.removeList(id)
         } catch (error) {
-            console.error()
+            console.error("couldn't delete list")
             
         }
     }
