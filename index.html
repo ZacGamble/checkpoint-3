@@ -15,16 +15,20 @@
 </head>
 
 <body>
-  <header class="text-light bg-secondary">
-    <div class="d-flex justify-content-center p-3">
-        <h1><i>TaskMaster</i></h1>
+  <header class="container-fluid text-light bg-secondary">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center p-3">
+          <h1><i>TaskMaster</i></h1>
+        </div>
+        <form onsubmit="app.listsController.addList()" name="add-list" id="add-list" class="d-flex justifty-space-between p-4">
+          <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" minlength="3" maxlength="15">
+          <label class="ms-4 align-self-center fs-3" for="color">Color:</label>
+          <input class="ms-4 p-1" type="color" name="color" style="min-height: 50px;">
+          <button class="ms-4 btn btn-info text-light fs-5" type="submit">Create List</button>
+        </form>
+      </div>
     </div>
-    <form onsubmit="app.listsController.addList()" name="add-list" id="add-list" class="d-flex justifty-space-between p-4">
-      <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" minlength="3" maxlength="15">
-      <label class="ms-4 align-self-center fs-3" for="color">Color:</label>
-      <input class="ms-4 p-1" type="color" name="color" style="min-height: 50px;">
-      <button class="ms-4 btn btn-info text-light fs-5" type="submit">Create List</button>
-    </form>
   </header>
   <main>
     <div class="container my-5">
@@ -43,7 +47,7 @@
             <div>
               <input name="task" id="task" class="my-2" type="checkbox">
               <label for="task">task shows here</label>
-            </div>
+            </div>0
         </div> -->
           <!-- End listTemplate -->
 

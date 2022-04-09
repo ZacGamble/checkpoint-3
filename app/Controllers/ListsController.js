@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js"
 import { Pop } from "../Utils/Pop.js"
-
+import { loadState, saveState } from "../Utils/LocalStorage.js"
 
 function _drawLists() {
     let lists = ProxyState.lists;
@@ -12,7 +12,10 @@ function _drawLists() {
 export class ListsController {
     constructor(){
         ProxyState.on('lists', _drawLists);
-        ProxyState.on('tasks', _drawLists)
+        ProxyState.on('tasks', _drawLists);
+        ProxyState.on('lists', saveState);
+        ProxyState.on('tasks', saveState);
+        loadState()
         _drawLists();
     }
     addList(){
@@ -36,10 +39,10 @@ export class ListsController {
         // console.log('sup from controller');
     }
 
-    removeList(){
+    removeList(listId){
         try {
-            console.log('delete button firing', name);
-            listsService.removeList(id)
+            console.log('delete button firing', listId);
+            listsService.removeList(listId)
         } catch (error) {
             console.error("couldn't delete list")
             

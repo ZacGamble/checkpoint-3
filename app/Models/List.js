@@ -15,7 +15,7 @@ export class List {
            <h4>${this.name}</h4>
            <h5>2/4</h5>
            <div class="d-flex justify-content-end">
-           <span onclick="app.listsController.removeList()" class="p-2 mdi mdi-delete on-hover">Trash</span>
+           <span onclick="app.listsController.removeList('${this.id}')" class="p-2 mdi mdi-delete on-hover">Trash</span>
           </div>
          </div>
         </div>

@@ -9,8 +9,9 @@ class ListsService {
         
     }
 
-    removeList(name){
-        ProxyState.lists = ProxyState.lists.filter(l => l.name !== name)
+    removeList(listId){
+        ProxyState.lists = ProxyState.lists.filter(l => l.id !== listId)
+        console.log(ProxyState.lists);
     }
 }
 
