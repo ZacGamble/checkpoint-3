@@ -4,16 +4,18 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
-let groceries = new List({id: generateId() , name: 'groceries', color: 'purple'})
-let chores = new List({id: generateId() , name: 'chores', color: 'red'})
+let groceries = new List({name: 'groceries', color: 'purple'})
+let chores = new List({name: 'chores', color: 'red'})
 
-let sweep = new Task({id: generateId(), name: 'sweep the floors'})
+let sweep = new Task({id: chores.id, name: 'sweep the floors'})
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/List').List[]} */
   lists = [groceries, chores]
+
+  /**@type {import ('./Models/Task').Task[]} */
   tasks = [sweep]
-  values = []
+  
 }
 
 export const ProxyState = new Proxy(new AppState(), {

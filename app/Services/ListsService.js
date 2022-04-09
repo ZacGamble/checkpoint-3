@@ -3,7 +3,6 @@ import { List } from "../Models/List.js";
 
 class ListsService {
     addList(listData){ 
-        
         const list = new List(listData)
         ProxyState.lists = [list, ...ProxyState.lists]
         
@@ -11,7 +10,6 @@ class ListsService {
 
     removeList(listId){
         ProxyState.lists = ProxyState.lists.filter(l => l.id !== listId)
-        console.log(ProxyState.lists);
     }
 }
 

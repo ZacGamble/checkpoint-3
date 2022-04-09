@@ -6,7 +6,7 @@ import { loadState, saveState } from "../Utils/LocalStorage.js"
 function _drawLists() {
     let lists = ProxyState.lists;
     let listsTemplate = ''
-    lists.forEach(l => listsTemplate += l.ListTemplate)
+    lists.forEach(l => listsTemplate += l.Template)
     document.getElementById('app').innerHTML = listsTemplate
 }
 export class ListsController {
@@ -18,6 +18,7 @@ export class ListsController {
         loadState()
         _drawLists();
     }
+
     addList(){
         window.event.preventDefault();
         try {
@@ -30,7 +31,6 @@ export class ListsController {
             name: form.name.value,
             color: form.color.value
         }
-
         listsService.addList(listData)
  
         } catch (error) {
@@ -39,14 +39,11 @@ export class ListsController {
         // console.log('sup from controller');
     }
 
-    removeList(listId){
-        try {
-            console.log('delete button firing', listId);
-            listsService.removeList(listId)
-        } catch (error) {
-            console.error("couldn't delete list")
-            
-        }
+    async removeList(listId){
+     if (await Pop.confirm()) {
+        listsService.removeList(listId)
+        Pop.toast('List Removed', 'success')
+     }
     }
 
 }

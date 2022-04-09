@@ -2,28 +2,45 @@ import { ProxyState } from "../AppState.js";
 import { tasksService } from "../Services/TasksService.js";
 import { Pop } from "../Utils/Pop.js"
 
+// PLEASE EXPLAIN ONE TO MANY a.k.a. PARENT TO CHILDREN RELATIONSHIP!!!
+// Getting the "tasks" to render correctly was painful to figure out.
+
+// function _drawTasks(){
+//     let tasks = ProxyState.tasks;
+//     let tasksTemplate = ''
+//     tasks.forEach(t => tasksTemplate += t.Template)
+//     document.getElementById('task-template').innerHTML = tasksTemplate
+// }
 
 export class TasksController {
+    constructor(){
+        //  ProxyState.on('tasks', _drawTasks);
+        // _drawTasks()
+    }
     addTask(listId){
         window.event.preventDefault();
         
         try {
             /**@type {HTMLFormElement} */
             // @ts-ignore
-            let form = window.event.target
+            const form = window.event.target
             
-            const listData = {           
+            const taskData = {           
                 listId,
-                
-                name: form.form.value,
+                name: form.task.value
             }
-            
-            console.log('addTask button', listData);
          
-        tasksService.addTask(listData)
+        tasksService.addTask(taskData)
  
         } catch (error) {
             console.error("[list form error]", error) 
         }
+    }
+   async removeTask(taskId){
+       if(await Pop.confirm()){
+
+           tasksService.removeTask(taskId) 
+           Pop.toast('Removed Task', 'success')
+        } 
     }
 }
