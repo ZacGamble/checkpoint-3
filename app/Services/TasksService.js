@@ -4,6 +4,9 @@ import { Task } from "../Models/Task.js";
 class TasksService {
     removeTask(taskId){
         ProxyState.tasks = ProxyState.tasks.filter(t => t.id !== taskId)
+        if(ProxyState.tasks.splice(t => t.id !==taskId)){
+            
+        }
     }
     addTask(taskData){
         let task = new Task(taskData)

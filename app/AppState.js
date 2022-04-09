@@ -7,14 +7,14 @@ import { isValidProp } from "./Utils/isValidProp.js"
 let groceries = new List({name: 'groceries', color: 'purple'})
 let chores = new List({name: 'chores', color: 'red'})
 
-let sweep = new Task({id: chores.id, name: 'sweep the floors'})
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/List').List[]} */
+
   lists = [groceries, chores]
 
   /**@type {import ('./Models/Task').Task[]} */
-  tasks = [sweep]
+  tasks = []
   
 }
 

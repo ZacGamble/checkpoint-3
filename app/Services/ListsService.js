@@ -4,7 +4,7 @@ import { List } from "../Models/List.js";
 class ListsService {
     addList(listData){ 
         const list = new List(listData)
-        ProxyState.lists = [list, ...ProxyState.lists]
+        ProxyState.lists = [...ProxyState.lists, list]
         
     }
 

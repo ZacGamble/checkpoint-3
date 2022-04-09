@@ -14,33 +14,43 @@ export class List {
       tasks.forEach(t => template += t.Template)
       return template
     }
-
-    get Completion() {
+    get Numerator() {
+      let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
       let numerator = 0
-      let denominator = ProxyState.tasks.length * 1
+      if(2 > 1){ //LOGIC FOR TASK CHECKBOXES?
+        listTask.forEach(t => numerator ++)
+      }
+
+    }
+
+    get Denominator() {
+        let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
+        let denominator = 0
+        listTask.forEach(t => denominator ++)
+        return denominator 
     }
 
     get Template(){
         return `
-        <div class="col-md-4 col-lg-3 d-flex flex-column bg-light border ms-3">
-          <div>
-           <div class="text-light" style="background-color: ${this.color}">
+        <div class="col-md-4 col-lg-3 d-flex flex-column bg-light border m-4">
+            <div>
+              <div class="text-light" style="background-color: ${this.color}">
+              <div class="d-flex justify-content-between">
               <h4>${this.name}</h4>
-              <h5>2/4</h5>
-            <div class="d-flex justify-content-end">
-                <span onclick="app.listsController.removeList('${this.id}')" class="p-2 mdi mdi-delete on-hover">Trash</span>
+              <span onclick="app.listsController.removeList('${this.id}')" class="p-2 mdi mdi-delete on-hover">Trash</span>
+              </div>
+              <h5 class='text-center'>numerator/${this.Denominator}</h5>
+              </div>
             </div>
-           </div>
-          </div>
           
             <div class="d-flex flex-column p-2">
-              <ul id="task-template" class="" style="text-decoration: none;">
+              <ul id="task-template" class="text-break" style="text-decoration: none;">
                ${this.Tasks}
               </ul>
             </div>
           
           <form onsubmit="app.tasksController.addTask('${this.id}')" class="d-flex justify-content-between">
-            <input style="max-width: 75%;" type="text" placeholder="Add task..." name="task" id="task" minlength="3" maxlength="50">
+            <input style="max-width: 75%;" type="text" placeholder="Add task..." name="task" id="task" minlength="3" maxlength="50" required>
             <button type="submit" class="p-2 on-hover bg-success">+</button>
           </form>
             

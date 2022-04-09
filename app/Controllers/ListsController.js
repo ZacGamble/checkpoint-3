@@ -11,12 +11,12 @@ function _drawLists() {
 }
 export class ListsController {
     constructor(){
-        ProxyState.on('lists', _drawLists);
-        ProxyState.on('tasks', _drawLists);
-        ProxyState.on('lists', saveState);
-        ProxyState.on('tasks', saveState);
+        ProxyState.on('lists', _drawLists)
+        ProxyState.on('tasks', _drawLists)
+        ProxyState.on('lists', saveState)
+        ProxyState.on('tasks', saveState)
         loadState()
-        _drawLists();
+        _drawLists()
     }
 
     addList(){

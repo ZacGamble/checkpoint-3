@@ -13,13 +13,8 @@ import { Pop } from "../Utils/Pop.js"
 // }
 
 export class TasksController {
-    constructor(){
-        //  ProxyState.on('tasks', _drawTasks);
-        // _drawTasks()
-    }
     addTask(listId){
         window.event.preventDefault();
-        
         try {
             /**@type {HTMLFormElement} */
             // @ts-ignore
