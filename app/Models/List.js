@@ -3,7 +3,7 @@ import { generateId } from "../Utils/generateId.js";
 
 export class List {
     constructor(data){
-        this.id = generateId() || data.id
+        this.id = data.id || generateId()
         this.name = data.name
         this.color = data.color
     }
@@ -17,10 +17,10 @@ export class List {
     get Numerator() {
       let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
       let numerator = 0
-      if(2 > 1){ //LOGIC FOR TASK CHECKBOXES?
+      if(2>1){ //LOGIC FOR TASK CHECKBOXES?
         listTask.forEach(t => numerator ++)
       }
-
+      return numerator
     }
 
     get Denominator() {
@@ -34,17 +34,17 @@ export class List {
         return `
         <div class="col-md-4 col-lg-3 d-flex flex-column bg-light border m-4">
             <div>
-              <div class="text-light" style="background-color: ${this.color}">
-              <div class="d-flex justify-content-between">
-              <h4>${this.name}</h4>
-              <span onclick="app.listsController.removeList('${this.id}')" class="p-2 mdi mdi-delete on-hover">Trash</span>
-              </div>
-              <h5 class='text-center'>numerator/${this.Denominator}</h5>
+              <div class="text-light p-2" style="background-color: ${this.color}">
+                <div class="d-flex justify-content-between">
+                 <h4>${this.name}</h4>
+                 <span onclick="app.listsController.removeList('${this.id}')" class="p-2 mdi mdi-delete on-hover pointer bg-light text-dark rounded">Delete</span>
+                </div>
+               <h5 class='text-center'>${this.Numerator}/${this.Denominator}</h5>
               </div>
             </div>
           
             <div class="d-flex flex-column p-2">
-              <ul id="task-template" class="text-break" style="text-decoration: none;">
+              <ul id="task-template" class="text-break list-group" style="list-style-type: none;">
                ${this.Tasks}
               </ul>
             </div>

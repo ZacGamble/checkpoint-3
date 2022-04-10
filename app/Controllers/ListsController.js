@@ -1,10 +1,10 @@
-import { ProxyState } from "../AppState.js";
+import { ProxyState } from "../AppState.js"
 import { listsService } from "../Services/ListsService.js"
 import { Pop } from "../Utils/Pop.js"
 import { loadState, saveState } from "../Utils/LocalStorage.js"
 
 function _drawLists() {
-    let lists = ProxyState.lists;
+    let lists = ProxyState.lists
     let listsTemplate = ''
     lists.forEach(l => listsTemplate += l.Template)
     document.getElementById('app').innerHTML = listsTemplate
@@ -17,6 +17,11 @@ export class ListsController {
         ProxyState.on('tasks', saveState)
         loadState()
         _drawLists()
+    }
+    taskTrack(){
+        ProxyState.tasks.filter(t => t.id == t.id)
+        let checkbox = document.getElementById('checkbox');
+        console.log("checkbox");
     }
 
     addList(){
@@ -31,6 +36,7 @@ export class ListsController {
             name: form.name.value,
             color: form.color.value
         }
+       
         listsService.addList(listData)
  
         } catch (error) {

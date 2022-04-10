@@ -22,7 +22,7 @@
           <h1><i>TaskMaster</i></h1>
         </div>
         <form onsubmit="app.listsController.addList()" name="add-list" id="add-list" class="d-flex justifty-space-between p-4">
-          <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" minlength="3" maxlength="15">
+          <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" min="3" minlength="3" max="0" maxlength="15" required>
           <label class="ms-4 align-self-center fs-3" for="color">Color:</label>
           <input class="ms-4 p-1 pointer" type="color" name="color" style="min-height: 50px; min-width: 50px;">
           <button class="ms-4 btn btn-info text-light fs-5" type="submit">Create List</button>
@@ -38,7 +38,7 @@
         <!-- My ListTemplate injects here -->
 
 
-      </div>
+      </div> 
     </div>
   </main>
 

@@ -1,10 +1,9 @@
 import { List } from "./Models/List.js"
 import { Task } from "./Models/Task.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
-import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
-let groceries = new List({name: 'groceries', color: 'purple'})
+let groceries = new List({name: 'Groceries', color: 'purple'})
 let chores = new List({name: 'chores', color: 'red'})
 
 
