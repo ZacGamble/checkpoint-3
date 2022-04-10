@@ -18,11 +18,6 @@ export class ListsController {
         loadState()
         _drawLists()
     }
-    taskTrack(){
-        ProxyState.tasks.filter(t => t.id == t.id)
-        let checkbox = document.getElementById('checkbox');
-        console.log("checkbox");
-    }
 
     addList(){
         window.event.preventDefault();

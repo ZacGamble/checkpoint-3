@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { Task } from "../Models/Task.js";
 import { tasksService } from "../Services/TasksService.js";
 import { Pop } from "../Utils/Pop.js"
 
@@ -13,6 +14,10 @@ import { Pop } from "../Utils/Pop.js"
 // }
 
 export class TasksController {
+
+    taskTrack(){
+        console.log("checkbox");
+    }
     addTask(listId){
         window.event.preventDefault();
         try {
