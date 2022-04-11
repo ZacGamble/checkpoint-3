@@ -9,7 +9,7 @@ class ValuesService {
   //   const values = ProxyState.values.filter(v => v.id !== id)
   //   ProxyState.values = values
   // }
-}
+} 
 
 export const valuesService = new ValuesService();
 

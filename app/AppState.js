@@ -4,8 +4,7 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 let groceries = new List({name: 'Groceries', color: 'purple'})
-let chores = new List({name: 'chores', color: 'red'})
-
+let chores = new List({name: 'Chores', color: 'red'})
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/List').List[]} */
@@ -13,8 +12,8 @@ class AppState extends EventEmitter {
   lists = [groceries, chores]
 
   /**@type {import ('./Models/Task').Task[]} */
-  tasks = []
-  
+  tasks = []  
+  // checks = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

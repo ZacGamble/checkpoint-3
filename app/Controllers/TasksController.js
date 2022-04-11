@@ -13,10 +13,17 @@ import { Pop } from "../Utils/Pop.js"
 //     document.getElementById('task-template').innerHTML = tasksTemplate
 // }
 
-export class TasksController {
+// export function taskTrack(taskId){
+//     const check = window.event.target
+//     let x = document.getElementById('done').checked
+//     tasksService.taskTrack(taskId)
+//     console.log("checkbox", x);
+// }
 
-    taskTrack(){
-        console.log("checkbox");
+export class TasksController {
+    taskTrack(taskId){
+        tasksService.taskTrack(taskId)
+        var checkboxes = document.querySelectorAll("input[type=checkbox][name=done]");
     }
     addTask(listId){
         window.event.preventDefault();
@@ -27,7 +34,8 @@ export class TasksController {
             
             const taskData = {           
                 listId,
-                name: form.task.value
+                name: form.task.value,
+                checked: form.checked.value
             }
          
         tasksService.addTask(taskData)

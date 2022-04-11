@@ -21,12 +21,16 @@
         <div class="d-flex justify-content-center p-3">
           <h1><i>TaskMaster</i></h1>
         </div>
-        <form onsubmit="app.listsController.addList()" name="add-list" id="add-list" class="d-flex justifty-space-between p-4">
-          <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" min="3" minlength="3" max="0" maxlength="15" required>
-          <label class="ms-4 align-self-center fs-3" for="color">Color:</label>
-          <input class="ms-4 p-1 pointer" type="color" name="color" style="min-height: 50px; min-width: 50px;">
-          <button class="ms-4 btn btn-info text-light fs-5" type="submit">Create List</button>
-        </form>
+        </div>
+        <div class="col">
+          <form onsubmit="app.listsController.addList()" name="add-list" id="add-list" class="d-flex justifty-space-between p-4" class="form-group">
+            <input class="ms-4" type="text" placeholder="List Name..." id="name" name="name" min="3" minlength="3" max="0" maxlength="15" required>
+            <label class="ms-4 align-self-center fs-3" for="color">Color:</label>
+            <input class="ms-4 p-1 pointer" type="color" name="color" style="min-height: 50px; min-width: 50px;">
+            <button class="ms-4 btn btn-info text-light fs-5" type="submit">Create List</button>
+          </form>
+        </div>
+          
       </div>
     </div>
   </header>
@@ -48,6 +52,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
     integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
   <script src="app/main.js" type="module"></script>
+
 </body>
 
 </html>

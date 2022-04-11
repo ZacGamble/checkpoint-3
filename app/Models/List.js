@@ -1,5 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
+import { Task } from "./Task.js";
+// import { taskTrack() } from "../Services/TasksService.js";
 
 export class List {
     constructor(data){
@@ -17,9 +19,8 @@ export class List {
     get Numerator() {
       let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
       let numerator = 0
-      if(2>1){ //LOGIC FOR TASK CHECKBOXES?
-        listTask.forEach(t => numerator ++)
-      }
+      //LOGIC FOR TASK CHECKBOXES?
+      var checkboxes = document.querySelectorAll("input[type=checkbox][name=done]");
       return numerator
     }
 
@@ -51,7 +52,7 @@ export class List {
           
           <form onsubmit="app.tasksController.addTask('${this.id}')" class="d-flex justify-content-between">
             <input style="max-width: 75%;" type="text" placeholder="Add task..." name="task" id="task" minlength="3" maxlength="50" required>
-            <button type="submit" class="p-2 on-hover bg-success">+</button>
+            <button type="submit" name="checked" class="p-2 on-hover bg-success">+</button>
           </form>
             
       </div>

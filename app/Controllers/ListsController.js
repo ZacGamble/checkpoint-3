@@ -15,6 +15,8 @@ export class ListsController {
         ProxyState.on('tasks', _drawLists)
         ProxyState.on('lists', saveState)
         ProxyState.on('tasks', saveState)
+        // ProxyState.on('checks', saveState)
+        // ProxyState.on('checks', loadState)
         loadState()
         _drawLists()
     }
