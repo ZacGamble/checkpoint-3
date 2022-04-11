@@ -19,8 +19,18 @@ export class List {
     get Numerator() {
       let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
       let numerator = 0
+      for (let i = 0; i < ProxyState.tasks.length; i++) {
+        const task = ProxyState.tasks[i];
+        if(task.isComplete == true && task.listId == this.id){
+          numerator ++
+        }else{
+          numerator--
+        }
+        
+      }
       //LOGIC FOR TASK CHECKBOXES?
-      var checkboxes = document.querySelectorAll("input[type=checkbox][name=done]");
+     
+      console.log('List Model',numerator);
       return numerator
     }
 

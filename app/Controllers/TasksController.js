@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { Task } from "../Models/Task.js";
 import { tasksService } from "../Services/TasksService.js";
+import { loadState, saveState } from "../Utils/LocalStorage.js";
 import { Pop } from "../Utils/Pop.js"
 
 // PLEASE EXPLAIN ONE TO MANY a.k.a. PARENT TO CHILDREN RELATIONSHIP!!!
@@ -21,9 +22,13 @@ import { Pop } from "../Utils/Pop.js"
 // }
 
 export class TasksController {
+    constructor(){
+        ProxyState.on('tasks', saveState)
+        
+    }
     taskTrack(taskId){
         tasksService.taskTrack(taskId)
-        var checkboxes = document.querySelectorAll("input[type=checkbox][name=done]");
+        // var checkboxes = document.querySelectorAll("input[type=checkbox][name=done]");
     }
     addTask(listId){
         window.event.preventDefault();
