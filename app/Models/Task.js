@@ -14,7 +14,7 @@ export class Task {
         <input ${this.isComplete == true ? 'checked' : ''} onclick="app.tasksController.taskTrack('${this.id}')" class='form-check-input me-1' name="done" type ='checkbox' id="done" value="yes">
         <li>${this.name}
         </li>
-        <i class="mdi" mdi-delete selectable on-hover pointer bg-light text-dark" title="Delete" onclick="app.tasksController.removeTask('${this.id}')" minlength="3" maxlength="50">
+        <i class="mdi mdi-delete selectable pointer bg-warning text-dark on-hover" title="Delete" onclick="app.tasksController.removeTask('${this.id}')" minlength="3" maxlength="50">
         </i>
         </div>
         `

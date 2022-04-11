@@ -17,23 +17,13 @@ export class List {
       return template
     }
     get Numerator() {
-      let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
-      let numerator = 0
-      for (let i = 0; i < ProxyState.tasks.length; i++) {
-        const task = ProxyState.tasks[i];
-        if(task.isComplete == true && task.listId == this.id){
-          numerator ++
-        }else{
-          numerator--
-        }
-        
-      }
       //LOGIC FOR TASK CHECKBOXES?
-     
-      console.log('List Model',numerator);
-      return numerator
-    }
-
+      let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
+      let completedTasks = listTask.filter(t =>t.isComplete == true )
+      let numerator = completedTasks.length
+        return numerator
+      }
+    
     get Denominator() {
         let listTask = ProxyState.tasks.filter(t => t.listId == this.id)
         let denominator = 0
